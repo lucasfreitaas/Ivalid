@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InitialActivity">
+
+    <!-- CONTEÚDO PRINCIPAL DA TELA -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <!-- Scroll para permitir rolagem -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- TOOLBAR -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/toolbar_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!-- Ícone Menu -->
+                    <ImageView
+                        android:id="@+id/menu_icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_menu"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Logo -->
+                    <ImageView
+                        android:id="@+id/logo_image"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_logo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/menu_icon"
+                        app:layout_constraintEnd_toStartOf="@id/bag_icon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"/>
+
+                    <!-- Carrinho -->
+                    <ImageView
+                        android:id="@+id/bag_icon"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_cart"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Barra de busca -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/search_bar_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar_container"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:layout_margin="8dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <EditText
+                            android:id="@+id/campoBusca"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:hint="O que você procura?"
+                            android:padding="12dp"
+                            android:background="#EEEEEE"
+                            android:inputType="text"
+                            android:singleLine="true"/>
+
+                        <Button
+                            android:id="@+id/btnBuscar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Buscar"
+                            android:textColor="@android:color/white"
+                            android:background="#32a852"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"/>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Saudação -->
+                <TextView
+                    android:id="@+id/greeting_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Olá, Toninho Tornado"
+                    android:paddingStart="16dp"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/search_bar_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- Banner Promocional -->
+                <ImageView
+                    android:id="@+id/banner_image"
+                    android:layout_width="0dp"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_banner"
+                    app:layout_constraintTop_toBottomOf="@id/greeting_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- Produtos com menos de 7 dias -->
+                <TextView
+                    android:id="@+id/products_title_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Produtos com menos de 7 dias"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:paddingStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/banner_image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/products_recycler_view_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_product_card"
+                    app:layout_constraintTop_toBottomOf="@id/products_title_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- Frios -->
+                <TextView
+                    android:id="@+id/products_title_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Frios"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:paddingStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/products_recycler_view_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/products_recycler_view_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_product_card"
+                    app:layout_constraintTop_toBottomOf="@id/products_title_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    app:layout_constraintTop_toBottomOf="@id/products_recycler_view_2"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- NAVIGATION DRAWER -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_home"
+            android:title="Início" />
+
+        <item
+            android:id="@+id/nav_compras"
+            android:icon="@drawable/ic_cart"
+            android:title="Minhas Compras" />
+
+        <item
+            android:id="@+id/nav_ofertas"
+            android:icon="@drawable/ic_tag"
+            android:title="Melhores ofertas" />
+
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_chat"
+            android:title="Fale conosco" />
+    </group>
+
+    <item android:title="Setores">
+        <menu>
+            <item
+                android:id="@+id/nav_adega"
+                android:title="Adega e bebidas" />
+            <item
+                android:id="@+id/nav_biscoitos"
+                android:title="Biscoitos e doces" />
+            <item
+                android:id="@+id/nav_cereais"
+                android:title="Cereais" />
+            <item
+                android:id="@+id/nav_congelados"
+                android:title="Congelados" />
+            <item
+                android:id="@+id/nav_enlatados"
+            android:title="Enlatados" />
+        <item
+            android:id="@+id/nav_frios"
+            android:title="Frios e laticínios" />
+            <item
+                android:id="@+id/nav_higiene"
+                android:title="Higiene e beleza" />
+            <item
+                android:id="@+id/nav_limpeza"
+                android:title="Limpeza" />
+            <item
+                android:id="@+id/nav_mercearia"
+                android:title="Mercearia" />
+        </menu>
+    </item>
+
+    <item android:title="Outros">
+        <menu>
+            <item android:title="Ajuda" />
+            <item android:title="Configurações" />
+            <item android:title="Segurança" />
+            <item android:title="Sugerir melhorias" />
+        </menu>
+    </item>
+
+</menu>

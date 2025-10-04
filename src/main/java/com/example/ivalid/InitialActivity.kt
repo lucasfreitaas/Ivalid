@@ -60,27 +60,39 @@ class InitialActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelec
     override fun onNavigationItemSelected(item: MenuItem): Boolean{
         val menuId = item.itemId
 
-        val sessionId: Int = when(menuId){
-            R.id.nav_adega      -> 10
-            R.id.nav_biscoitos  -> 20
-            R.id.nav_cereais    -> 30
-            R.id.nav_congelados -> 40
-            R.id.nav_enlatados  -> 50
-            R.id.nav_frios      -> 60
-            R.id.nav_higiene    -> 70
-            R.id.nav_limpeza    -> 80
-            R.id.nav_mercearia  -> 90
+         when(menuId){
+             R.id.nav_compras -> {
+                 navigateToPurchases()
+             }
+
+            R.id.nav_adega      -> openSession(10)
+            R.id.nav_biscoitos  -> openSession(20)
+            R.id.nav_cereais    -> openSession(30)
+            R.id.nav_congelados -> openSession(40)
+            R.id.nav_enlatados  -> openSession(50)
+            R.id.nav_frios      -> openSession(60)
+            R.id.nav_higiene    -> openSession(70)
+            R.id.nav_limpeza    -> openSession(80)
+            R.id.nav_mercearia  -> openSession(90)
             else                -> -1
-        }
-
-        if(sessionId != -1){
-            val intent = Intent(this, SessionsActivity::class.java)
-
-            intent.putExtra("SESSION_ID", sessionId)
-            startActivity(intent)
         }
         drawerLayout.closeDrawer(GravityCompat.START)
 
         return true
+    }
+
+    private fun navigateToPurchases(){
+        val intent = Intent(this, PurchasesActivity:: class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        }
+        startActivity(intent)
+    }
+
+    private fun openSession(sessionId: Int) {
+        val intent = Intent(this, SessionsActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            putExtra("SESSION_ID", sessionId)
+        }
+        startActivity(intent)
     }
 }

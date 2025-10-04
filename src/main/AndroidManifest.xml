@@ -40,6 +40,12 @@
             android:label="Sessões"
             android:theme="@style/Theme.Ivalid" >
         </activity>
+        <activity
+            android:name=".PurchasesActivity"
+            android:exported="false"
+            android:label="Compras"
+            android:theme="@style/Theme.Ivalid" >
+        </activity>
 
     </application>
 

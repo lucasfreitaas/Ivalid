@@ -53,35 +53,47 @@ class SessionsActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
     override fun onNavigationItemSelected(item: MenuItem): Boolean{
         val menuId = item.itemId
 
-        val sessionId: Int = when(menuId){
-            R.id.nav_adega      -> 10
-            R.id.nav_biscoitos  -> 20
-            R.id.nav_cereais    -> 30
-            R.id.nav_congelados -> 40
-            R.id.nav_enlatados  -> 50
-            R.id.nav_frios      -> 60
-            R.id.nav_higiene    -> 70
-            R.id.nav_limpeza    -> 80
-            R.id.nav_mercearia  -> 90
-            else                -> -1
-        }
+        when (menuId) {
+            R.id.nav_inicio -> {
+                navigateToHome()
+            }
+            R.id.nav_compras -> {
+                navigateToPurchases()
+            }
 
-        if(sessionId != -1){
-            val intent = Intent(this, SessionsActivity::class.java)
-
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-
-            intent.putExtra("SESSION_ID", sessionId)
-            startActivity(intent)
+            R.id.nav_adega      -> openSession(10)
+            R.id.nav_biscoitos  -> openSession(20)
+            R.id.nav_cereais    -> openSession(30)
+            R.id.nav_congelados -> openSession(40)
+            R.id.nav_enlatados  -> openSession(50)
+            R.id.nav_frios      -> openSession(60)
+            R.id.nav_higiene    -> openSession(70)
+            R.id.nav_limpeza    -> openSession(80)
+            R.id.nav_mercearia  -> openSession(90)
         }
         drawerLayout.closeDrawer(GravityCompat.START)
 
         return true
     }
 
+    private fun openSession(sessionId: Int) {
+        val intent = Intent(this, SessionsActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            putExtra("SESSION_ID", sessionId)
+        }
+        startActivity(intent)
+    }
+
     private fun navigateToHome() {
         val intent = Intent(this, InitialActivity::class.java).apply {
             // Flags para voltar à raiz da aplicação e limpar as Activities acima
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        }
+        startActivity(intent)
+    }
+
+    private fun navigateToPurchases(){
+        val intent = Intent(this, PurchasesActivity:: class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         }
         startActivity(intent)

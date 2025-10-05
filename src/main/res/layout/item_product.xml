@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/iv_produto_principal"
+                android:layout_width="357dp"
+                android:layout_height="182dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="Imagem do produto atual"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/ic_queijo" />
+
+            <TextView
+                android:id="@+id/tv_nome_produto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="[NOME] - Tamanho/Peso" />
+
+            <TextView
+                android:id="@+id/tv_preco_antigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp"
+                tools:text="R$ 10,00" />
+
+            <TextView
+                android:id="@+id/tv_preco_atual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#4CAF50"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:text="R$ 5,99" />
+
+            <include
+                android:id="@+id/aviso_validade"
+                layout="@layout/validity_prod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:src="@drawable/bg_red" />
+
+            <Button
+                android:id="@+id/btn_adicionar_carrinho"
+                android:layout_width="384dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#4CAF50"
+                android:text="Adicionar ao carrinho"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_arrow"
+            android:contentDescription="Ícone de promoção ou destaque"
+            android:padding="8dp"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/cart_icon"
+            android:layout_width="51dp"
+            android:layout_height="45dp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Adicionar aos favoritos"
+            android:padding="8dp"
+            android:src="@drawable/ic_cart"
+            tools:visibility="visible" />
+
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

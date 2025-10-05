@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ivalid</string>
+    <string name="preco_formatado">R$ %.2f</string>
+    <string name="aviso_validade_formatado">Consumir em até %d dias</string>
 </resources>
